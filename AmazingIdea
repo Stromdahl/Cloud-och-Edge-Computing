@@ -1,0 +1,18 @@
+The artifical quantum plant-life supporter.
+
+Tanken med den här idén är att vi ska ha en enhet som mäter av fukt i jorden av en planta. Den ska också mäta temperatur i rummet.
+När plantan är torr så ska vi skicka meddelande till LCD displayen att plantan behöver vattnas. Den ska oxå skickas som en pushnotis till en app på telefonen.
+
+
+Data ska skickas till MQTT broker, LCD och LED ska subscriba på topics.
+
+
+
+Devices:
+    1. Fuktsensor
+    2. NodeMCU
+    3. MQTT Broker(Online brokers eller annat. Vi får se)
+    4. LCD-display
+    5. Led-lampor
+    6. En App för att ha koll på stats, eller en dashboard på node-red
+    7. 2 topics, Temperatur och Fukt.
