@@ -1,0 +1,1 @@
+[{"id":"550ac558.ba6c8c","type":"inject","z":"9156bdc8.1ea73","name":"Fuktsensor","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"5","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"21","payloadType":"num","x":150,"y":160,"wires":[["a6526cdf.c474c"]]}]
