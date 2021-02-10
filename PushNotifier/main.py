@@ -5,7 +5,6 @@ mqtt_address = "192.168.1.100"
 port = 1883
 
 
-# The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
     client.subscribe("test")
@@ -22,10 +21,7 @@ def main():
     client.on_connect = on_connect
     client.on_message = on_message
 
-    client.connect(mqtt_address, 1883, 60)
-
-    client.publish("test", "on")
-
+    client.connect(host=mqtt_address, port=port, keepalive=60)
     client.loop_forever()
 
 
