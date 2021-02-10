@@ -3,11 +3,12 @@ import paho.mqtt.client as mqtt
 
 mqtt_address = "192.168.1.100"
 port = 1883
+topic = "test"
 
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
-    client.subscribe("test")
+    client.subscribe(topic)
 
 
 def on_message(client, userdata, msg):
