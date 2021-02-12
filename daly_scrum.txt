@@ -1,1 +1,9 @@
 
+Daily-scrum 9 feb Protokollförare: Besim Musliu Deltagare: Mattias Mohammed Leszek Besimmmmmm 
+Sammanfattning för dagen Idén är påbörjad och slutförd. Vi har kommit överens om vad vi vill göra. Sprint är skapad, uppgifter är utlagda. Vi har gjort en första sketch på Node-Red som ska simulera det projekt vi tänkt skapa. 
+
+Till nästa gång: 
+Leszek: Jobba med KYH-9 
+Mattias: Jobba med KYH-10 
+Besim: Research inom vårat projekt 
+Mohammed: Jobba med KYH-5 
