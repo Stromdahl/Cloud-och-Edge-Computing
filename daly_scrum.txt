@@ -16,3 +16,20 @@ Daily-scrum 9 feb
         Mattias: Jobba med KYH-10
         Besim: Research inom vårat projekt
         Mohammed: Jobba med KYH-5
+        
+Daily-scrum 12 feb
+    Protokollförare: Les
+    Deltagare:
+        Mattias
+        Mohammed
+        Leszek
+        Besim
+    Sammanfattning för dagen:
+        Mattias har lagt Telegram funktonalitet - (KYH-10) avslutat
+        Bessim är färdig med KYH-5
+        Leszek har påborjat presentation inför redovisning
+        
+        Vi har gått genom dagens materiall och diskuterat hur vi kan komma vidare med AWS, Dashboard, Flask
+    Till nästa gång:
+        Alla projektdeltagare: Research, nya Things in IoT Core (KYH-11)
+        
