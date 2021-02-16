@@ -33,3 +33,17 @@ Daily-scrum 12 feb
     Till nästa gång:
         Alla projektdeltagare: Research, nya Things in IoT Core (KYH-11)
         
+Daily-scrum 16 feb
+    Protokollförare: Les
+    Deltagare:
+        Mattias
+        Leszek
+        Besim
+        -1
+    Sammanfattning för dagen:
+        Vi har kopplat upp en sensor data till DynamoDB
+        Vi har skrivit en Python och Flask app för att kunna presentera datan från DynamoDB på localhost sida
+        
+    Till nästa gång:
+        Alla projektdeltagare: Research, nya Things in IoT Core (KYH-12), hitta ett sätt att prresentera data på en graf
+        
