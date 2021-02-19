@@ -46,4 +46,18 @@ Daily-scrum 16 feb
         
     Till nästa gång:
         Alla projektdeltagare: Research, nya Things in IoT Core (KYH-12), hitta ett sätt att prresentera data på en graf
+
+Daily-scrum 19 feb
+    Protokollförare: Mattias
+    Deltagare:
+        Mattias
+        Leszek
+        Besim
+        Mohammed
+    Sammanfattning för dagen:
+        Vi har undersökt hur vi ska kunna bygga en dashboard med hjälp av flask ajax och aws
+        Vi har fått igång lagrning av data i DynamoDB från IOT core (mqtt)
         
+    Till nästa gång:
+        Samtliga deltagare fortsätter med research om flask ajax och aws
+        Leszek kollar på AWS lambda
