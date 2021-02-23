@@ -61,3 +61,26 @@ Daily-scrum 19 feb
     Till nästa gång:
         Samtliga deltagare fortsätter med research om flask ajax och aws
         Leszek kollar på AWS lambda
+        
+Daily-scrum 23 feb
+   Protokollförare: Leszek
+   Deltagare:
+        Mattias
+        Leszek
+        Besim
+        Mohammed
+    Sammanfattning för dagen:
+        Vi har skapat nya IAM profiler och nya things, tabell och lambdas för samtliga, allt data synkas på ett konto
+            (detta för att kunna jobba enhetligt)
+        Vi har synkat vara JSON filer som skickas från sensorer
+        Alla deltagare skickar och lagrar sensor data i samma format
+        Mattias har fått grafisk presentation av data i flask appen
+        Besim har implementerat SNS notification och skickat massa SMS på Mattias bekostnad
+        
+    Till nästa gång:
+        Mattias vill titta på Bookah bibliotek
+        Besim forstätta med sin Lambda funktion
+        Leszek Jquery_flot
+        Mohammed ska skapa en sensor i Node-Red och börja skicka data till IoT Core, och sen till DynamoDB, och implementera Lambda
+        
+        
