@@ -100,3 +100,6 @@ modules.xml
 *.code-workspace
 
 # End of https://www.toptal.com/developers/gitignore/api/jetbrains+all,vscode
+
+# Ignores config files
+config.py
