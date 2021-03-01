@@ -2,8 +2,9 @@ import boto3
 from boto3.dynamodb.conditions import Attr
 from botocore.exceptions import ClientError
 from datetime import datetime, timezone
-from config import *
 import matplotlib.pyplot as plt
+
+from DynamoDB.config import *
 
 
 def get_resource():
