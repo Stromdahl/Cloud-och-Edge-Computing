@@ -17,7 +17,7 @@ def get_all_values(dynamodb=None):
     if not dynamodb:
         dynamodb = get_resource()
 
-    table = dynamodb.Table('sensor_data')
+    table = dynamodb.Table('Mattias_sensor_data')
 
     try:
         response = table.scan()
@@ -42,26 +42,29 @@ def get_all_by_id(_id, dynamodb=None):
 
 
 class Device:
-    def __init__(self, time, _id, name, data):
+    def __init__(self, time, name, humidity, moisture, temperature):
         self.time = time
-        self.id = _id
         self.name = name
-        self.data = data
+        self.humidity = humidity
+        self.moisture = moisture
+        self.temperature = temperature
 
     def __repr__(self):
-        return f'Device({self.time}, {self.id}, {self.name}, {self.data})'
+        return f'Device({self.time}, {self.name}, {self.humidity}, {self.moisture}, {self.temperature})'
 
     def __str__(self):
-        return f'Device {self.name} with id {self.id} gave a value of {self.data} on {self.time}'
+        return f'{self.time} the Device {self.name} gave values: Humidity {self.humidity}, Moisture {self.moisture}, ' \
+               f'Temp: {self.temperature} '
 
     @staticmethod
     def create_from_dict(dict_data):
-        timestamp = int(dict_data['sample_time']) // 1000
-        time = datetime.fromtimestamp(timestamp, timezone.utc)
-        _id = dict_data[' device_id']
-        name = dict_data['device_data']['device_name']
-        data = dict_data['device_data']['device_data']
-        return Device(time, _id, name, data)
+        timestamp = int(dict_data['timestamp']) // 1000
+        time = timestamp  # datetime.fromtimestamp(timestamp, timezone.utc)
+        name = dict_data["id"]
+        humidity = dict_data["humidity"]
+        moisture = dict_data["moisture"]
+        temperature = dict_data["temperature"]
+        return Device(time, name, humidity, moisture, temperature)
 
 
 def main():

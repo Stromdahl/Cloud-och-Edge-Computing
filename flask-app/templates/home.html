@@ -1,53 +1,15 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
 
-<script>
-  $(function () {
-    window.setInterval(function () {
-      loadCurrentTime();
-      load_sensor_value();
-      load_plot_image();
-    }, 1000);
+    <link rel="stylesheet" href={{ cdn_css | safe}} type="text/css"/>
+    <script type="text/javascript" src={{ cdn_js | safe}}></script>
+</head>
+<body>
+{{ script1 | safe }}
+{{ div1 | safe }}
 
-    function loadCurrentTime() {
-      $.ajax({
-        url: "/update_current_time",
-        type: "POST",
-        dataType: "json",
-        success: function (data) {
-          $(current_time).replaceWith(data);
-        },
-      });
-    }
-    function load_sensor_value(){
-        $.ajax({
-            url: "/update_sensor_values",
-            type: "POST",
-            dataType: "json",
-            success: function (data) {
-                $(current_sensor_values).replaceWith(data)
-            }
-        })
-      }
-      function load_plot_image(){
-        $.ajax({
-            url: "/plot.png",
-            type: "POST",
-            contentType: "image/png",
-            success: function (data) {
-                $(plot_image).replaceWith(data)
-            }
-        })
-      }
-  });
-
-</script>
-
-<div id="current_time">{{ time }}</div>
-
-<h1> Sensor values </h1>
-
-<div id="current_sensor_values">Temperature: {{ temp }}<br/>Soil moisture: {{ moist }}</div>
-
-<img id="temperature_plot" src="static/images/temperature_plot.png?123" alt="Temperature"/>
-<img id="moisture_plot" src="static/images/moisture_plot.png?123" alt="Moisture"/>
-<img id="humidity_plot" src="static/images/humidity_plot.png?123" alt="Humidity"/>
+</body>
+</html>
