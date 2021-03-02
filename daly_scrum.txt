@@ -104,4 +104,18 @@ Daily-scrum 26 feb
     Leszek fortsätter IOT CORE MQTT kommunikation mellan två enheter.
     Mattias fortsätter med Bookeh
     Besim ska implementera ännu en enhet för sina simulerade sensorer som ska fungera som en termostat.
+
+Daily-scrum 2 mars
+   Protokollförare: Mattias
+   Deltagare:
+        Mattias
+        Leszek
+        Besim
+        -1
+    Sammanfattning av dagen:
+        Samtliga har implementerat mqtt till en flask applikation
+        Vi har börjat planera presentationen av vårt arbete
+        
+    Till nästa gång:
+        Mattias ska sammanställa vår dashboard med mqtt(iot core) och dynamodb
         
