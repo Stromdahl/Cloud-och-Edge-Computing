@@ -82,5 +82,26 @@ Daily-scrum 23 feb
         Besim forstätta med sin Lambda funktion
         Leszek Jquery_flot
         Mohammed ska skapa en sensor i Node-Red och börja skicka data till IoT Core, och sen till DynamoDB, och implementera Lambda
-        
+
+Daily-scrum 26 feb
+   Protokollförare: Besim
+   Deltagare:
+        Mattias
+        Leszek
+        Besim
+        -1
+    Sammanfattning för dagen:
+        Mattias är igång med implementation av Bookeh som visar sensordata i grafisk form. Det återstår uppdatering av data.
+        Besim har gått igenom sin dashboard i node-red som simulerar och presenterar data i grafisk form i en chart.(färdigställd)
+        Leszek har implementerat kod för 2 lambdas som triggas av nya inputs i DynamoDB och kontrollerar temperaturvärden. Lambda skickar message till SNS topic
+
+        Från förra gången:
+                Besim är färdig med sin lambda som ska triggas utav för höga temperaturer(SNS NOTIFICATION)
+                Vi beslöt oss för att strunta i Jquery-flot, vi forsätter med Bookeh biblioteket istället.
+                Mattias påbörjade Bookeh arbetet.
+
+    Till nästa gång:
+    Leszek fortsätter IOT CORE MQTT kommunikation mellan två enheter.
+    Mattias fortsätter med Bookeh
+    Besim ska implementera ännu en enhet för sina simulerade sensorer som ska fungera som en termostat.
         
