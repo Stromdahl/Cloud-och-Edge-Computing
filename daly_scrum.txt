@@ -111,11 +111,25 @@ Daily-scrum 2 mars
         Mattias
         Leszek
         Besim
-        -1
+        Mohammed
     Sammanfattning av dagen:
         Samtliga har implementerat mqtt till en flask applikation
         Vi har börjat planera presentationen av vårt arbete
         
     Till nästa gång:
         Mattias ska sammanställa vår dashboard med mqtt(iot core) och dynamodb
+        
+Daily-scrum 5 mars
+   Protokollförare: Leszek
+   Deltagare:
+        Mattias
+        Leszek
+        Besim
+        Mohammed
+    Sammanfattning av dagen:
+        Samtliga har implementerat mqtt till en flask applikation
+        Leszek implementerat API för in och ut data
+        
+    Till nästa gång:
+        Fortsätta med presentation och sista "polering" av projektet 
         
