@@ -7,104 +7,91 @@
     <script src='static/Chart.min.js'></script>
 </head>
 <body>
-<h1>Temperature Sensor #1</h1>
-<!-- bar chart canvas element -->
-<button id="update"> update</button>
+<h1>Temperature Sensor </h1>
+<p id="temp">0</p>
 <canvas id="myChart" width="600" height="400"></canvas>
 <script>
     // Global parameters:
     // do not resize the chart canvas when its container does (keep at 600x400px)
     Chart.defaults.global.responsive = false;
     // define the chart data
-    var chartData = {
-        labels: [{% for item in labels %}
-            "{{item}}",
-        {% endfor %}],
-        datasets: [{
-            label: '{{ legend }}',
-            fill: true,
-            lineTension: 0.1,
-            backgroundColor: "rgba(75,192,192,0.4)",
-            borderColor: "rgba(75,192,192,1)",
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: "rgba(75,192,192,1)",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(75,192,192,1)",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 10,
-            data: [{% for item in values %}
-                {{item}},
+    let chartData;
+    let chart;
+
+    function createChart() {
+        chartData = {
+            labels: [{% for item in labels %}
+                "{{item}}",
             {% endfor %}],
-            spanGaps: false
-        }]
-    }
-
-    // get chart canvas
-    var holder = document.getElementById("myChart");
-    var ctx = document.getElementById("myChart").getContext("2d");
-
-    // create the chart using the chart canvas
-    var chart = new Chart(ctx, {
-        type: 'line',
-        data: chartData,
-        options: {
-            tooltips: {
-                enabled: true,
-                mode: 'single',
-                callbacks: {
-                    label: function (tooltipItems, data) {
-                        return tooltipItems.yLabel + ' degrees';
-                    }
-                }
-            },
-        }
-    });
-
-
-    function updateChart() {
-        var updatedData = $.get('/line_chart')
-
-        updatedData.done(function (results) {
-            var data = {
-                labels: [{% for item in labels %}
-                    "{{item}}",
+            datasets: [{
+                label: '{{ legend }}',
+                fill: true,
+                lineTension: 0.1,
+                backgroundColor: "rgba(75,192,192,0.4)",
+                borderColor: "rgba(75,192,192,1)",
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: "rgba(75,192,192,1)",
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 1,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: [{% for item in values %}
+                    {{item}},
                 {% endfor %}],
-                datasets: [{
-                    label: '{{ legend }}',
-                    fill: true,
-                    lineTension: 0.1,
-                    backgroundColor: "rgba(75,192,192,0.4)",
-                    borderColor: "rgba(75,192,192,1)",
-                    borderCapStyle: 'butt',
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    borderJoinStyle: 'miter',
-                    pointBorderColor: "rgba(75,192,192,1)",
-                    pointBackgroundColor: "#fff",
-                    pointBorderWidth: 1,
-                    pointHoverRadius: 5,
-                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                    pointHoverBorderColor: "rgba(220,220,220,1)",
-                    pointHoverBorderWidth: 2,
-                    pointRadius: 1,
-                    pointHitRadius: 10,
-                    data: [{% for item in values %}
-                        {{item}},
-                    {% endfor %}],
-                    spanGaps: false
-                }]
+                spanGaps: false
+            }]
+        }
+
+        // get chart canvas
+        let holder = document.getElementById("myChart");
+        let ctx = document.getElementById("myChart").getContext("2d");
+
+        // create the chart using the chart canvas
+        chart = new Chart(ctx, {
+            type: 'line',
+            data: chartData,
+            options: {
+                tooltips: {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.yLabel + ' degrees';
+                        }
+                    }
+                },
             }
-            chart.update(data);
         });
     }
-    $("#update").on('click', updateChart)
+
+    function addData(chart, label, data) {
+        console.log(chart)
+        chart.data.labels.push(label);
+        chart.data.datasets.forEach((dataset) => {
+            dataset.data.push(data);
+        });
+        chart.update();
+    }
+
+    createChart()
+
+    let stream = new EventSource('/api/stream')
+    stream.onmessage = (event) => {
+        let tempID = document.getElementById("temp");
+        let raw_data = event.data;
+        let data = JSON.parse(raw_data.replaceAll("'", '"'));
+        console.log(data)
+        tempID.innerHTML = data["temperature"]
+        addData(chart, data["time"], data["temperature"])
+    };
+
 </script>
 
 </body>

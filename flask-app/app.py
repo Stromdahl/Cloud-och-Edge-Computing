@@ -1,3 +1,4 @@
+import time
 from datetime import datetime
 from queue import Queue
 from threading import Thread
@@ -17,11 +18,13 @@ def event_stream():
 		message = queue.get()
 		data = {
 			"id": message["id"],
+			"time":  datetime.utcfromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M'),
 			"temperature": message["temperature"],
 			"humidity": message["humidity"],
 			"moisture": message["moisture"]
 		}
-		yield f'data: {data["id"]}: {data}\n\n'
+
+		yield f"data: {data}\n\n"
 		queue.task_done()
 
 
@@ -59,7 +62,6 @@ def store_data():
 
 
 if __name__ == "__main__":
-	print("if main")
 	mqtt = MQTT(queue, listener=True, topic='Mattias/0/data').bootstrap_mqtt()
 	mqtt_thread = Thread(target=mqtt.start)
 	mqtt_thread.start()

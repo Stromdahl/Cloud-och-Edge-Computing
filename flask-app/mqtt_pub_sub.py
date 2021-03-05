@@ -16,6 +16,7 @@ class MQTT:
 		self.listener = listener
 		self.topic = topic
 		self.logger = logging.getLogger()
+		self.logger.info("Starting Mqtt")
 
 	def __on_connect(self, client, userdata, flags, rc):
 		self.connected = True
