@@ -133,3 +133,16 @@ Daily-scrum 5 mars
     Till nästa gång:
         Fortsätta med presentation och sista "polering" av projektet 
         
+        
+Daily-scrum 09 mars
+   Protokollförare: Besim
+   Deltagare:
+        Mattias
+        Leszek
+        Besim
+        Mohammed
+    Sammanfattning av dagen:
+        Vi har färdigställt våran presentation för den 12e mars. Ready to Rumble!
+        
+    Till nästa gång:
+        Presentera vårat projekt  
